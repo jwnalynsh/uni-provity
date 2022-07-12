@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3">
+                <h2 class="colorlib-heading">Jadwal Ujian</h2>
+            </div>
+        </div>
+        <form ng-submit="addData(mapelUjian, hariUjian, wamulUjian, waselUjian)" method="post">
+            <div class="form-group">
+                <span class="heading-meta">Nama Mata Pelajaran</span>
+                <select ng-model="mapelUjian"  class="form-control" name="mapelUjian" id="mapelUjian" ng-required="true">
+                    <option ng-repeat="d in datas" placeholder=" Input Nama Mata Pelajaran">{{d.mapel}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">Hari</span>
+                <select ng-model="hariUjian"  class="form-control" name="hariUjian" id="hariUjian" ng-required="true">
+                    <option>Senin</option>
+                    <option>Selasa</option>
+                    <option>Rabu</option>
+                    <option>Kamis</option>
+                    <option>Jumat</option>
+                    <option>Sabtu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">waktu mulai
+                    <input ng-model="wamulUjian"  type="time" name="wamulUjian" id="wamulUjian" class="form-control"
+                        placeholder="Waktu Mulai" aria-placeholder="Waktu Mulai" ng-required="true">
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">Waktu Selesai</span>
+                <input ng-model="waselUjian"  type="time" class="form-control" name="waselUjian" id="waselUjian" placeholder="Waktu Akhir"
+                    aria-placeholder="Waktu Akhir" ng-required="true">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary " value="submit">
+            </div>
+
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Mata Pelajaran</th>
+                        <th>Hari</th>
+                        <th>Waktu Mulai</th>
+                        <th>Waktu Selesai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in datass">
+                        <td>{{d.mapel}}</td>
+                        <td>{{d.hari}}</td>
+                        <td>{{d.wamul}}</td>
+                        <td>{{d.wasel}}</td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="deleteDataUjian(d.mapel)"
+                                title="Delete">del</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>

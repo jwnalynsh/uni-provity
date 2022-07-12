@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="colorlib-narrow-content">
+
+        <div class="row">
+            <form  ng-submit="addData(item)" method="post">
+                <div class="form-group">
+                    <h2 class="colorlib-heading">To Do List</h2>
+                    <input ng-model="item" ng-required="true" type="text" class="form-control" name="item" id="item" placeholder=" Input nama item">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary " value="submit" >
+                </div>
+            </form>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in checks">
+                        <td>{{c.item}}</td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="deleteDataTodo(c.item)"
+                                title="Delete">del</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>

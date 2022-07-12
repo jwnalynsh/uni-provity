@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 ">
+                <h2 class="colorlib-heading">Jadwal Pelajaran</h2>
+            </div>
+        </div>
+
+        <form method="post" ng-submit="addData(mapel, hari, wamul, wasel)" name="formJadwal">
+            <div class="form-group">
+                <span class="heading-meta">Nama Mata Pelajaran</span>
+                <input ng-model="mapel" type="text" class="form-control" name="mapel" id="mapel" ng-required="true">
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">Hari</span>
+                <select class="form-control" ng-model="hari" name="hari" id="hari" ng-required="true">
+                    <option>Senin</option>
+                    <option>Selasa</option>
+                    <option>Rabu</option>
+                    <option>Kamis</option>
+                    <option>Jumat</option>
+                    <option>Sabtu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">Waktu Mulai</span>
+                <input type="time" ng-model="wamul" name="wamul" id="wamul" class="form-control"
+                    placeholder="Waktu Mulai" aria-placeholder="Waktu Mulai" ng-required="true">
+            </div>
+            <div class="form-group">
+                <span class="heading-meta">Waktu Selesai</span>
+                <input type="time" ng-model="wasel" class="form-control" name="wasel" id="wasel"
+                    placeholder="Waktu Akhir" aria-placeholder="Waktu Akhir" ng-required="true">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary " value="submit" />
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nama Mata Pelajaran</th>
+                        <th>Hari</th>
+                        <th>Waktu Mulai</th>
+                        <th>Waktu Selesai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td>{{data.mapel}}</td>
+                        <td>{{data.hari}}</td>
+                        <td>{{data.wamul}}</td>
+                        <td>{{data.wasel}}</td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="deleteData(data.mapel)"
+                                title="Delete">del</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>

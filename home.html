@@ -1,0 +1,27 @@
+<head>
+    <style>
+        .jumbotron {
+            color: rgb(0, 0, 0);
+            background-image: url("images//cover_bg_1.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            text-align: center;
+        }
+    </style>
+</head>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome To Provity! </h1>
+        <p>Produktivitas tak terbatas para pelajar</p>
+    </div>
+    <script>
+        $(".jumbotron").css({ height: $(window).height() + "px" });
+
+        $(window).on("resize", function () {
+            $(".jumbotron").css({ height: $(window).height() + "px" });
+        });
+
+    </script>
+</div>
